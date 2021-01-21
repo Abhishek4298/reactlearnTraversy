@@ -8,30 +8,30 @@ function App() {
   const [tasks, setTasks] = useState([
     {
       id: "1",
-      text: "task1 work",
+      text: "task 1 work",
       day: "1st feb",
       reminder: "true"
     }, {
       id: "2",
-      text: "task2 work",
+      text: "task 2 work",
       day: "15  feb",
       reminder: "true"
     }, {
       id: "3",
-      text: "task3 work",
+      text: "task 3 work",
       day: "30 feb",
       reminder: "true"
     }
 
   ])
   return (
-    <>
-      <h1 style={{ color: "red" }}>
+    <div className="container">
+      <h1 style={{ color: "blue" }}>
         <Header title="Task Tracking App" />
       </h1>
-
       <Tasks tasks={tasks} />
-    </>
+
+    </div >
   );
 }
 
