@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from "./Button";
+import Task from "./Task";
 
 const Header = (props) => {
     const onClick = () => {
@@ -9,6 +10,7 @@ const Header = (props) => {
         <>
             <h3 >Heading {props.title}</h3>
             <Button color="green" text="hello" onClick={onClick} />
+            <Task />
         </>
     )
 }
