@@ -3,6 +3,7 @@ import { useState } from "react"
 import './App.css';
 import Header from "./component/Header";
 import Tasks from "./component/Tasks";
+import AddTask from "./component/AddTask";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -29,17 +30,23 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
   const toggleReminder = (id) => {
     setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task))
   }
+
 
   return (
     <div className="container">
       {/* <h1 style={{ color: "blue" }}> */}
       <Header title="Task Tracking App" />
+      <AddTask onAdd={addTask} />
       {/* </h1> */}
       { tasks.length > 0 ? <Tasks tasks={tasks} onToggle={toggleReminder} onDelete={deleteTask} /> : <p style={{ color: "red" }}>No Task Found</p>}
-
     </div >
   );
 }
