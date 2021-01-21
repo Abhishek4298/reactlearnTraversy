@@ -24,12 +24,15 @@ function App() {
     }
 
   ])
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
   return (
     <div className="container">
-      <h1 style={{ color: "blue" }}>
-        <Header title="Task Tracking App" />
-      </h1>
-      <Tasks tasks={tasks} />
+      {/* <h1 style={{ color: "blue" }}> */}
+      <Header title="Task Tracking App" />
+      {/* </h1> */}
+      { tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : "no Task Found"}
 
     </div >
   );
